@@ -106,7 +106,7 @@ export function signInWithFacebook(fbToken) {
       const credential = facebookProvider.credential(fbToken);
       auth
         .signInWithCredential(credential)
-        .then(user => {
+        .then(({ user }) => {
           // Get the user object from the realtime database
           database
             .ref('users')

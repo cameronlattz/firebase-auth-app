@@ -14,6 +14,7 @@ const {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: theme.statusBarHeight
   },
   bottomContainer: {
     backgroundColor: 'white',

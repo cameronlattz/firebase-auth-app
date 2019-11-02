@@ -17,6 +17,7 @@ import store from '../redux/store';
 import { checkLoginStatus } from '../modules/auth/actions';
 
 import { color, navTitleStyle } from '../styles/theme';
+import styles from '../modules/auth/scenes/Auth/styles';
 
 export default class extends React.Component {
   constructor() {
@@ -48,12 +49,12 @@ export default class extends React.Component {
         <Scene
           key="root"
           hideNavBar
-          navigationBarStyle={{ backgroundColor: '#fff' }}
+          navigationBarStyle={{ backgroundColor: '#fffff' }}
           titleStyle={navTitleStyle}
           backButtonTintColor={color.black}
         >
-          <Stack key="Auth" initial={!isLoggedIn}>
-            <Scene key="Welcome" component={Welcome} title="" initial hideNavBar />
+          <Stack key="Auth" initial={!isLoggedIn} hideNavBar>
+            <Scene key="Welcome" component={Welcome} title="" initial />
             <Scene key="Register" component={Register} title="Register" back />
             <Scene
               key="CompleteProfile"
@@ -61,10 +62,10 @@ export default class extends React.Component {
               title="Select Username"
               back={false}
             />
-            <Scene key="Login" component={Login} title="Log In" />
-            <Scene key="ForgotPassword" component={ForgotPassword} title="Reset Password" />
+            <Scene key="Login" component={Login} title="Log In" back />
+            <Scene key="ForgotPassword" component={ForgotPassword} title="Reset Password" back />
           </Stack>
-          <Stack key="Main" initial={isLoggedIn}>
+          <Stack key="Main" initial={isLoggedIn} hideNavBar>
             <Scene key="Home" component={Home} title="Home" initial type={ActionConst.REPLACE} />
           </Stack>
         </Scene>

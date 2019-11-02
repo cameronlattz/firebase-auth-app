@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { AppLoading } from 'expo';
+import { SafeAreaView, View, Text } from 'react-native';
 import * as Font from 'expo-font';
 import store from './src/redux/store';
 import Router from './src/config/routes';

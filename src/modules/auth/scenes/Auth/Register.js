@@ -50,6 +50,7 @@ const defaultError = {
 class Register extends React.Component {
   constructor() {
     super();
+    defaultError.general = '';
     this.state = { error: defaultError };
   }
 
@@ -82,7 +83,7 @@ class Register extends React.Component {
   };
 
   render() {
-    const { errorState } = this.state;
+    const { error } = this.state;
     return (
       <View style={styles.formContainer}>
         <Text style={styles.formHeader}>Register</Text>
@@ -91,7 +92,7 @@ class Register extends React.Component {
           showLabel={false}
           onSubmit={this.onSubmit}
           buttonTitle="SIGN UP"
-          error={errorState}
+          error={error}
         />
       </View>
     );

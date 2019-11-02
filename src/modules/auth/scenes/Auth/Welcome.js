@@ -57,7 +57,7 @@ class Welcome extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={{ flex: 1 }}>
         <View style={styles.topContainer}>
           <Image style={styles.image} source={indexImageSrc} />
           <Text style={styles.title}>Firebase Auth App</Text>

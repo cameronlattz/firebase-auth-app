@@ -24,17 +24,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundeIdentifier": "com.cameronlattz.test1",
-      "config": {
-        "googleSignIn": {
-          "reservedClientId": "com.googleusercontent.apps.730938281745-o9jgl39qv5hp5tiqgup98soc4u141nqj"
-        }
-      }
-    },
-    "android": {
-      "package": "com.cameronlattz.test1",
-      "googleServicesFile": "./src/google-services.json"
+      "supportsTablet": true
     }
   }
 }

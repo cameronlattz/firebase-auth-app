@@ -8,7 +8,8 @@ const resizeMode = 'contain';
 const styles = StyleSheet.create({
   formContainer: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: '9%'
   },
 
   formHeader: {
@@ -17,8 +18,7 @@ const styles = StyleSheet.create({
     fontFamily: font.family.bold,
     color: color.black,
     letterSpacing: 1,
-    marginTop: 20,
-    marginBottom: 50
+    marginBottom: '4%'
   },
 
   container: {

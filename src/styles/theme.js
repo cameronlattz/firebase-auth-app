@@ -1,4 +1,4 @@
-import { Dimensions, Platform } from 'react-native';
+import { Dimensions, Platform, StatusBar } from 'react-native';
 import { moderateScale as normalize } from 'react-native-size-matters';
 
 const color = {
@@ -70,7 +70,6 @@ const button = {
 };
 
 const padding = 8;
-const navbarHeight = (Platform.OS === 'ios') ? 64 : 54;
 const window = {
   height: Dimensions.get('window').height,
   width: Dimensions.get('window').width,
@@ -79,8 +78,10 @@ const window = {
 const navTitleStyle = {
   fontSize: font.size.regular,
   fontFamily: font.family.extrabold,
-  color: color.black,
+  color: color.black
 };
+
+const statusBarHeight = Platform.OS === 'android' ? StatusBar.currentHeight : 0;
 
 export {
   color,
@@ -89,8 +90,8 @@ export {
   font,
   window,
   padding,
-  navbarHeight,
+  statusBarHeight,
   navTitleStyle,
   normalize,
-  button,
+  button
 };

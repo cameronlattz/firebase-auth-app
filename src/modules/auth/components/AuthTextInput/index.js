@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import { Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import styles from "./styles";
-import { theme } from "../../index";
+import styles from './styles';
+import { theme } from '../../index';
 
 class AuthTextInput extends Component {
   render() {
@@ -25,7 +25,7 @@ class AuthTextInput extends Component {
       editable,
       multiline,
       autoCorrect,
-      autoCompleteType,
+      autoCompleteType
     } = this.props;
     const input = React.createRef();
 
@@ -34,7 +34,7 @@ class AuthTextInput extends Component {
     }
 
     function isSecureType() {
-      return textContentType === "password" || textContentType === "newPassword";
+      return textContentType === 'password' || textContentType === 'newPassword';
     }
 
     return (
@@ -44,15 +44,17 @@ class AuthTextInput extends Component {
           autoCompleteType={autoCompleteType}
           autoFocus={autoFocus}
           label={showLabel && label}
-          leftIcon={iconName && (
-            <Icon
-              name={iconName}
-              size={theme.input.icon.size}
-              color={theme.input.icon.color}
-              style={theme.input.icon.style}
-              onPress={onIconPressHandler}
-            />
-          )}
+          leftIcon={
+            iconName && (
+              <Icon
+                name={iconName}
+                size={theme.input.icon.size}
+                color={theme.input.icon.color}
+                style={theme.input.icon.style}
+                onPress={onIconPressHandler}
+              />
+            )
+          }
           placeholder={placeholder}
           errorStyle={styles.errorText}
           inputStyle={styles.inputStyle}
@@ -67,7 +69,7 @@ class AuthTextInput extends Component {
           placeholderTextColor={placeholderTextColor || styles.placeholderTextColor}
           secureTextEntry={isSecureType() || secureTextEntry}
           textContentType={textContentType}
-          dataDetectorTypes={includeLinks ? "link" : "none"}
+          dataDetectorTypes={includeLinks ? 'link' : 'none'}
           editable={editable}
           multiline={multiline}
           autoCorrect={autoCorrect}
@@ -78,10 +80,7 @@ class AuthTextInput extends Component {
 }
 
 AuthTextInput.propTypes = {
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   autoFocus: PropTypes.bool,
   placeholder: PropTypes.string,
   placeholderTextColor: PropTypes.string,
@@ -97,26 +96,26 @@ AuthTextInput.propTypes = {
   includeLinks: PropTypes.bool,
   editable: PropTypes.bool,
   multiline: PropTypes.bool,
-  autoCorrect: PropTypes.bool,
+  autoCorrect: PropTypes.bool
 };
 
 AuthTextInput.defaultProps = {
   autoFocus: false,
-  label: "",
+  label: '',
   secureTextEntry: false,
-  placeholder: "",
+  placeholder: '',
   placeholderTextColor: null,
-  keyboardType: "default",
-  value: "",
-  error: " ",
+  keyboardType: 'default',
+  value: '',
+  error: ' ',
   showLabel: true,
-  textContentType: "none",
+  textContentType: 'none',
   iconName: null,
   autoCompleteType: null,
   includeLinks: false,
   editable: true,
   multiline: false,
-  autoCorrect: true,
+  autoCorrect: true
 };
 
 export default AuthTextInput;

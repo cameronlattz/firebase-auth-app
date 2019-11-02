@@ -33,13 +33,14 @@ const fields = [
 
 const defaultError = {
   general: '',
-  email: '',
-  password: ''
+  email: ' ',
+  password: ' '
 };
 
 class Login extends React.Component {
   constructor() {
     super();
+    defaultError.general = '';
     this.state = {
       error: defaultError
     };
@@ -77,7 +78,7 @@ class Login extends React.Component {
   };
 
   render() {
-    const { errorState } = this.state;
+    const { error } = this.state;
     return (
       <View style={styles.formContainer}>
         <Text style={styles.formHeader}>Log In</Text>
@@ -86,7 +87,7 @@ class Login extends React.Component {
           showLabel={false}
           onSubmit={this.onSubmit}
           buttonTitle="LOG IN"
-          error={errorState}
+          error={error}
           onForgotPassword={this.onForgotPassword}
         />
       </View>

@@ -16,6 +16,10 @@ export function confirmPassword(cPassword, password) {
   return cPassword === password;
 }
 
+function capitalizeFirstLetter(string) {
+  return string[0].toUpperCase() + string.slice(1);
+}
+
 export function validate(form) {
   const error = {};
   let success = true;
@@ -27,15 +31,15 @@ export function validate(form) {
     if (field !== 'error') {
       const { type, value } = form[field];
       if (isEmpty(value)) {
-        error[field] = `Your ${field} is required`;
+        error[field] = `${capitalizeFirstLetter(field)} is required.`;
         success = false;
       } else {
         error[field] = '';
         if (type === 'email' && !validateEmail(value)) {
-          error[field] = 'Enter a valid email address';
+          error[field] = 'Please enter a valid email address.';
           success = false;
         } else if (type === 'password' && !validatePassword(value)) {
-          error[field] = 'Password must be at least 6 characters';
+          error[field] = 'Password must be at least 6 characters.';
           success = false;
         } else if (type === 'confirm_password' && !confirmPassword(value, form.password.value)) {
           error[field] = 'Password does not match.';
