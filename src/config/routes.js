@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Scene, Router, ActionConst, Stack,
-} from 'react-native-router-flux';
+import { Scene, Router, ActionConst, Stack } from 'react-native-router-flux';
 
 // Splash Component
 import Splash from '../components/Splash';
@@ -26,15 +24,17 @@ export default class extends React.Component {
     this.state = {
       isReady: false,
       isLoggedIn: false,
-      exist: false, // indicates if user exist in realtime database
+      exist: false // indicates if user exist in realtime database
     };
   }
 
   componentDidMount() {
     const component = this;
-    store.dispatch(checkLoginStatus((exist, isLoggedIn) => {
-      component.setState({ isReady: true, exist, isLoggedIn });
-    }));
+    store.dispatch(
+      checkLoginStatus((exist, isLoggedIn) => {
+        component.setState({ isReady: true, exist, isLoggedIn });
+      })
+    );
   }
 
   render() {
@@ -55,7 +55,12 @@ export default class extends React.Component {
           <Stack key="Auth" initial={!isLoggedIn}>
             <Scene key="Welcome" component={Welcome} title="" initial hideNavBar />
             <Scene key="Register" component={Register} title="Register" back />
-            <Scene key="CompleteProfile" component={CompleteProfile} title="Select Username" back={false} />
+            <Scene
+              key="CompleteProfile"
+              component={CompleteProfile}
+              title="Select Username"
+              back={false}
+            />
             <Scene key="Login" component={Login} title="Log In" />
             <Scene key="ForgotPassword" component={ForgotPassword} title="Reset Password" />
           </Stack>

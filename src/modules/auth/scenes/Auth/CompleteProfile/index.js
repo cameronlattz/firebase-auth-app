@@ -6,68 +6,63 @@ import Form from '../../../components/Form';
 
 const { createUser } = auth;
 
-
-const fields = [{
-  key: 'username',
-  label: 'Username',
-  placeholder: 'Username',
-  autoFocus: false,
-  secureTextEntry: false,
-  value: '',
-  type: 'text',
-}];
+const fields = [
+  {
+    key: 'username',
+    label: 'Username',
+    placeholder: 'Username',
+    autoFocus: false,
+    secureTextEntry: false,
+    value: '',
+    type: 'text'
+  }
+];
 
 const error = {
   general: '',
-  username: '',
+  username: ''
 };
 
 class CompleteProfile extends React.Component {
   constructor() {
     super();
     this.state = {
-      error,
+      error
     };
 
     this.onSubmit = this.onSubmit.bind(this);
-    this.onSuccess = this.onSuccess.bind(this);
     this.onError = this.onError.bind(this);
   }
 
   onSubmit(formData) {
+    const { props } = this;
     this.setState({
-      error,
-    }); // clear out error messages
+      error
+    });
 
     // attach user id
     const { user } = this.props;
     const data = formData;
     data.uid = user.uid;
 
-    this.props.createUser(data, this.onSuccess, this.onError);
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  onSuccess() {
-    Actions.Main();
+    props.createUser(data, Actions.Main(), this.onError);
   }
 
   onError(errorMessage) {
-    // eslint-disable-next-line react/destructuring-assignment, react/no-access-state-in-setstate
-    const errObj = this.state.error;
+    const { state } = this;
+    const errObj = state.error;
 
-    // eslint-disable-next-line no-prototype-builtins
-    if (errorMessage.hasOwnProperty('message')) {
+    if (Object.prototype.hasOwnProperty.call(error, 'message')) {
       errObj.general = errorMessage.message;
     } else {
       const keys = Object.keys(errorMessage);
-      keys.forEach((key) => {
+      keys.forEach(key => {
         errObj[key] = errorMessage[key];
       });
     }
 
     this.setState({
-      error: errObj,
+      error: errObj
     });
   }
 
@@ -85,4 +80,7 @@ class CompleteProfile extends React.Component {
   }
 }
 
-export default connect(null, { createUser })(CompleteProfile);
+export default connect(
+  null,
+  { createUser }
+)(CompleteProfile);

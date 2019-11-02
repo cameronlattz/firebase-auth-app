@@ -1,48 +1,48 @@
 import React from 'react';
+import { Button } from 'react-native-elements';
+import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+import styles from './styles';
+import { actions as auth } from '../../../auth/index';
 
-var {View, StyleSheet, Alert} = require('react-native');
+const { View, Alert } = require('react-native');
 
-import {Button} from 'react-native-elements'
-import {Actions} from 'react-native-router-flux';
-import {connect} from 'react-redux';
-
-import styles from "./styles"
-
-import {actions as auth, theme} from "../../../auth/index"
-
-const {signOut} = auth;
-
-const {color} = theme;
+const { signOut } = auth;
 
 class Home extends React.Component {
-    constructor() {
-        super();
-        this.state = {}
+  constructor() {
+    super();
+    this.state = {};
+  }
 
-    }
+  onSignOut = () => {
+    const { props } = this;
+    props
+      .signOut()
+      .then(() => Actions.reset('Auth'))
+      .catch(error => {
+        Alert.alert('Oops!', error.message);
+      });
+  };
 
-    onSignOut = () => {
-        this.props.signOut()
-            .then(() => Actions.reset("Auth"))
-            .catch((error) => {
-                Alert.alert('Oops!', error.message);
-            })
-    }
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <Button
-                    raised
-                    borderRadius={4}
-                    title={'LOG OUT'}
-                    containerViewStyle={[styles.containerView]}
-                    buttonStyle={[styles.button]}
-                    textStyle={styles.buttonText}
-                    onPress={this.onSignOut}/>
-            </View>
-        );
-    }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Button
+          raised
+          borderRadius={4}
+          title="LOG OUT"
+          containerViewStyle={[styles.containerView]}
+          buttonStyle={[styles.button]}
+          textStyle={styles.buttonText}
+          onPress={this.onSignOut}
+        />
+      </View>
+    );
+  }
 }
 
-export default connect(null, {signOut})(Home);
+export default connect(
+  null,
+  { signOut }
+)(Home);

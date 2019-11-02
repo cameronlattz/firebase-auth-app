@@ -7,12 +7,13 @@ const firebaseConfig = {
   databaseURL: config.FIREBASE_DATABASE_URL,
   projectId: config.FIREBASE_PROJECT_ID,
   storageBucket: config.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: config.FIREBASE_MESSAGING_SENDER_ID,
+  messagingSenderId: config.FIREBASE_MESSAGING_SENDER_ID
 };
 
 firebase.initializeApp(firebaseConfig);
 
 export const database = firebase.database();
 export const auth = firebase.auth();
-export const provider = new firebase.auth.FacebookAuthProvider();
+export const facebookProvider = firebase.auth.FacebookAuthProvider;
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export const storage = firebase.storage();

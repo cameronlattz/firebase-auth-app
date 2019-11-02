@@ -4,46 +4,47 @@ import { connect } from 'react-redux';
 import { Text, View } from 'react-native';
 import { actions as auth } from '../../index';
 import Form from '../../components/Form';
-import styles from "./styles";
+import styles from './styles';
 
 const { register } = auth;
 
-const fields = [{
-  key: 'email',
-  label: 'Email Address',
-  placeholder: 'Email Address',
-  autoFocus: true,
-  secureTextEntry: false,
-  type: 'email',
-  iconName: 'at',
-  value: "cameronlattz@gmail.com",
-},
-{
-  key: 'username',
-  label: 'Username',
-  placeholder: 'Username',
-  autoFocus: false,
-  secureTextEntry: false,
-  type: 'text',
-  iconName: 'user',
-  value: "cameronlattz",
-},
-{
-  key: 'password',
-  label: 'Password',
-  placeholder: 'Password',
-  autoFocus: false,
-  secureTextEntry: true,
-  type: 'password',
-  iconName: 'key',
-  value: "abcdef",
-},
+const fields = [
+  {
+    key: 'email',
+    label: 'Email Address',
+    placeholder: 'Email Address',
+    autoFocus: true,
+    secureTextEntry: false,
+    type: 'email',
+    iconName: 'at',
+    value: 'cameronlattz@gmail.com'
+  },
+  {
+    key: 'username',
+    label: 'Username',
+    placeholder: 'Username',
+    autoFocus: false,
+    secureTextEntry: false,
+    type: 'text',
+    iconName: 'user',
+    value: 'cameronlattz'
+  },
+  {
+    key: 'password',
+    label: 'Password',
+    placeholder: 'Password',
+    autoFocus: false,
+    secureTextEntry: true,
+    type: 'password',
+    iconName: 'key',
+    value: 'abcdef'
+  }
 ];
 
 const defaultError = {
   general: ' ',
   email: ' ',
-  password: ' ',
+  password: ' '
 };
 
 class Register extends React.Component {
@@ -52,28 +53,31 @@ class Register extends React.Component {
     this.state = { error: defaultError };
   }
 
-  onSubmit = (data) => {
+  onSubmit = data => {
     const { props } = this;
     this.setState({ error: defaultError });
-    props.register(data)
-      .then(() => {console.log(data); Actions.Main()})
+    props
+      .register(data)
+      .then(() => {
+        Actions.Main();
+      })
       .catch(this.onError);
-  }
+  };
 
-  onError = (error) => {
+  onError = error => {
     const { state } = this;
     const errObj = state.error;
 
-    if (error.hasOwnProperty('message')) {
+    if (Object.prototype.hasOwnProperty.call(error, 'message')) {
       errObj.general = error.message;
     } else {
       const keys = Object.keys(error);
-      keys.forEach((key) => {
+      keys.forEach(key => {
         errObj[key] = error[key];
       });
     }
     this.setState({
-      error: errObj,
+      error: errObj
     });
   };
 
@@ -94,4 +98,7 @@ class Register extends React.Component {
   }
 }
 
-export default connect(null, { register })(Register);
+export default connect(
+  null,
+  { register }
+)(Register);
