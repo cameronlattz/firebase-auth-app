@@ -1,0 +1,6 @@
+add scrolling content
+add tabs
+add auth method linking
+add crud
+add theming
+clean code

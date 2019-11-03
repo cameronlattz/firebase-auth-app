@@ -60,7 +60,7 @@ class Welcome extends React.Component {
       <View style={{ flex: 1 }}>
         <View style={styles.topContainer}>
           <Image style={styles.image} source={indexImageSrc} />
-          <Text style={styles.title}>Firebase Auth App</Text>
+          <Text style={styles.title}>{theme.appName}</Text>
         </View>
 
         <View style={styles.bottomContainer}>

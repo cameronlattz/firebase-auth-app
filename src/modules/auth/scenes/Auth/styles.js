@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     paddingBottom: padding * 2,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FF553F'
+    backgroundColor: theme.color.secondary
   },
 
   image: {
@@ -52,14 +52,14 @@ const styles = StyleSheet.create({
   },
 
   subText: {
-    color: '#414141',
+    color: color.secondary,
     fontSize: font.size.large,
     lineHeight: font.size.large + 10,
     marginVertical: padding * 2
   },
 
   bottomContainer: {
-    backgroundColor: 'white',
+    backgroundColor: color.white,
     paddingVertical: padding * 3,
     shadowColor: '#000000',
     shadowOpacity: 0.8,
@@ -100,12 +100,12 @@ const styles = StyleSheet.create({
     fontSize: font.size.regular,
     fontFamily: font.family.medium,
     marginRight: 5,
-    color: '#414141'
+    color: color.light_black
   },
 
   signInText: {
     fontSize: font.size.regular,
-    color: '#FF553F',
+    color: theme.color.secondary,
     fontFamily: font.family.medium
   },
 
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     backgroundColor: color.white,
     fontSize: font.size.regular,
     fontFamily: font.family.medium,
-    color: '#414141',
+    color: color.light_black,
     paddingHorizontal: padding
   }
 });
