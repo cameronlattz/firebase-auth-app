@@ -26,25 +26,24 @@ export default class src extends Component {
     };
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  async loadAssetsAsync() {
-    const fontAssets = cacheFonts([
-      { UbuntuBold },
-      { UbuntuMedium },
-      { UbuntuRegular },
-      { UbuntuLight },
-      { UbuntuItalic }
-    ]);
-
-    await Promise.all([...fontAssets]);
-  }
-
   render() {
     const { isReady } = this.state;
+
+    async function loadAssetsAsync() {
+      const fontAssets = cacheFonts([
+        { UbuntuBold },
+        { UbuntuMedium },
+        { UbuntuRegular },
+        { UbuntuLight },
+        { UbuntuItalic }
+      ]);
+      await Promise.all([...fontAssets]);
+    }
+
     if (!isReady) {
       return (
         <AppLoading
-          startAsync={this.loadAssetsAsync}
+          startAsync={loadAssetsAsync}
           onFinish={() => this.setState({ isReady: true })}
           onError={console.warn}
         />
