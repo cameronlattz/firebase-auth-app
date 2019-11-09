@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { ScrollView, Text } from 'react-native';
 import styles from './styles';
 
-const { View, Text } = require('react-native');
-
-class Profile extends React.Component {
+class Settings extends React.Component {
   constructor() {
     super();
     this.state = {};
@@ -12,9 +11,9 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Profile</Text>
-      </View>
+      <ScrollView style={styles.container}>
+        <Text>Settings</Text>
+      </ScrollView>
     );
   }
 }
@@ -22,4 +21,4 @@ class Profile extends React.Component {
 export default connect(
   null,
   {}
-)(Profile);
+)(Settings);

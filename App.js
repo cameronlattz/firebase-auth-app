@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { AppLoading } from 'expo';
-import { SafeAreaView, View, Text } from 'react-native';
+import { YellowBox } from 'react-native';
 import * as Font from 'expo-font';
 import store from './src/redux/store';
 import Router from './src/config/routes';
+import UbuntuBold from './src/assets/fonts/Ubuntu-Bold.ttf';
+import UbuntuMedium from './src/assets/fonts/Ubuntu-Medium.ttf';
+import UbuntuRegular from './src/assets/fonts/Ubuntu-Regular.ttf';
+import UbuntuLight from './src/assets/fonts/Ubuntu-Light.ttf';
+import UbuntuItalic from './src/assets/fonts/Ubuntu-Italic.ttf';
 
 function cacheFonts(fonts) {
   return fonts.map(font => Font.loadAsync(font));
 }
+
+// eslint-disable-next-line no-console
+YellowBox.ignoreWarnings(['Setting a timer']);
 
 export default class src extends Component {
   constructor() {
@@ -21,16 +29,11 @@ export default class src extends Component {
   // eslint-disable-next-line class-methods-use-this
   async loadAssetsAsync() {
     const fontAssets = cacheFonts([
-      // eslint-disable-next-line global-require
-      { UbuntuBold: require('./src/assets/fonts/Ubuntu-Bold.ttf') },
-      // eslint-disable-next-line global-require
-      { UbuntuMedium: require('./src/assets/fonts/Ubuntu-Medium.ttf') },
-      // eslint-disable-next-line global-require
-      { UbuntuRegular: require('./src/assets/fonts/Ubuntu-Regular.ttf') },
-      // eslint-disable-next-line global-require
-      { UbuntuLight: require('./src/assets/fonts/Ubuntu-Light.ttf') },
-      // eslint-disable-next-line global-require
-      { UbuntuItalic: require('./src/assets/fonts/Ubuntu-Italic.ttf') }
+      { UbuntuBold },
+      { UbuntuMedium },
+      { UbuntuRegular },
+      { UbuntuLight },
+      { UbuntuItalic }
     ]);
 
     await Promise.all([...fontAssets]);

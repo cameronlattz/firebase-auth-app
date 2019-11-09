@@ -1,12 +1,13 @@
 import React from 'react';
-import { Button, Header } from 'react-native-elements';
+import { Header } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
+import { Alert, Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import PropTypes from 'prop-types';
 import styles from './styles';
 import { appName } from '../../../../styles/theme';
 import { actions as auth } from '../../../auth/index';
-
-const { View, Alert } = require('react-native');
 
 const { signOut } = auth;
 
@@ -28,21 +29,40 @@ class Drawer extends React.Component {
 
   render() {
     return (
-      <View style={[styles.drawerContentContainer]}>
+      <View style={styles.drawerContentContainer}>
         <Header
           leftComponent={{ style: { display: 'none' } }}
-          centerComponent={{ text: appName, style: styles.navHeader }}
+          centerComponent={{ text: appName, style: styles.navCenterComponent }}
           rightComponent={{ style: { display: 'none' } }}
+          containerStyle={styles.navHeader}
         />
-        <Button title="Home" buttonStyle={styles.navItem} onPress={Actions.Home} />
-        <Button title="New Message" buttonStyle={styles.navItem} onPress={Actions.Create} />
-        <Button title="Read Messages" buttonStyle={styles.navItem} onPress={Actions.Read} />
-        <Button title="Profile" buttonStyle={styles.navItem} onPress={Actions.Profile} />
-        <Button title="Log Out" buttonStyle={styles.navItem} onPress={this.onSignOut} />
+        <TouchableOpacity onPress={Actions.Home} style={styles.navItem}>
+          <Text style={styles.navItemText}>Home</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={Actions.Create} style={styles.navItem}>
+          <Text style={styles.navItemText}>New Message</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={Actions.Read} style={styles.navItem}>
+          <Text style={styles.navItemText}>Read Messages</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={Actions.Statistics} style={styles.navItem}>
+          <Text style={styles.navItemText}>Profile</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.onSignOut} style={styles.navItem}>
+          <Text style={styles.navItemText}>Log Out</Text>
+        </TouchableOpacity>
       </View>
     );
   }
 }
+
+Drawer.propTypes = {
+  signOut: PropTypes.func
+};
+
+Drawer.defaultProps = {
+  signOut: null
+};
 
 export default connect(
   null,

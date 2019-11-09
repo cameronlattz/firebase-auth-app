@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
-import { theme } from '../../index';
+import { input as inputStyle } from '../../../../styles/theme';
 
 class AuthTextInput extends Component {
   render() {
@@ -25,7 +25,8 @@ class AuthTextInput extends Component {
       editable,
       multiline,
       autoCorrect,
-      autoCompleteType
+      autoCompleteType,
+      containerStyle
     } = this.props;
     const input = React.createRef();
 
@@ -44,13 +45,14 @@ class AuthTextInput extends Component {
           autoCompleteType={autoCompleteType}
           autoFocus={autoFocus}
           label={showLabel && label}
+          showLabel={showLabel}
           leftIcon={
             iconName && (
               <Icon
                 name={iconName}
-                size={theme.input.icon.size}
-                color={theme.input.icon.color}
-                style={theme.input.icon.style}
+                size={inputStyle.icon.size}
+                color={inputStyle.icon.color}
+                style={inputStyle.icon.style}
                 onPress={onIconPressHandler}
               />
             )
@@ -58,7 +60,7 @@ class AuthTextInput extends Component {
           placeholder={placeholder}
           errorStyle={styles.errorText}
           inputStyle={styles.inputStyle}
-          containerStyle={styles.containerStyle}
+          containerStyle={containerStyle || styles.containerStyle}
           errorMessage={error}
           defaultValue={value}
           autoCapitalize="none"
@@ -66,7 +68,7 @@ class AuthTextInput extends Component {
           underlineColorAndroid={styles.underlineColorAndroid}
           onChangeText={onChangeText}
           keyboardType={keyboardType}
-          placeholderTextColor={placeholderTextColor || styles.placeholderTextColor}
+          placeholderTextColor={placeholderTextColor || inputStyle.placeholderTextColor}
           secureTextEntry={isSecureType() || secureTextEntry}
           textContentType={textContentType}
           dataDetectorTypes={includeLinks ? 'link' : 'none'}
@@ -96,7 +98,10 @@ AuthTextInput.propTypes = {
   includeLinks: PropTypes.bool,
   editable: PropTypes.bool,
   multiline: PropTypes.bool,
-  autoCorrect: PropTypes.bool
+  autoCorrect: PropTypes.bool,
+  containerStyle: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
+  )
 };
 
 AuthTextInput.defaultProps = {
@@ -115,7 +120,8 @@ AuthTextInput.defaultProps = {
   includeLinks: false,
   editable: true,
   multiline: false,
-  autoCorrect: true
+  autoCorrect: true,
+  containerStyle: null
 };
 
 export default AuthTextInput;

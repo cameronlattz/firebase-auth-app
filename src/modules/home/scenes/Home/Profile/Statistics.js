@@ -1,9 +1,9 @@
 import React from 'react';
-import { ScrollView, Text } from 'react-native';
 import { connect } from 'react-redux';
-import styles from './styles';
+import { ScrollView, Text } from 'react-native';
+import styles from '../styles';
 
-class Home extends React.Component {
+class Statistics extends React.Component {
   constructor() {
     super();
     this.state = {};
@@ -12,7 +12,7 @@ class Home extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <Text>Home</Text>
+        <Text>Statistics</Text>
       </ScrollView>
     );
   }
@@ -21,4 +21,4 @@ class Home extends React.Component {
 export default connect(
   null,
   {}
-)(Home);
+)(Statistics);

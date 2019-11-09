@@ -2,6 +2,7 @@ import React from 'react';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { Text, View } from 'react-native';
+import PropTypes from 'prop-types';
 import { actions as auth } from '../../index';
 import Form from '../../components/Form';
 import styles from './styles';
@@ -70,6 +71,14 @@ class ForgotPassword extends React.Component {
     );
   }
 }
+
+ForgotPassword.propTypes = {
+  resetPassword: PropTypes.func
+};
+
+ForgotPassword.defaultProps = {
+  resetPassword: null
+};
 
 export default connect(
   null,

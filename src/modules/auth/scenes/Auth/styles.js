@@ -1,7 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { theme } from '../../index';
-
-const { padding, color, font, window, normalize } = theme;
+import { button, padding, color, font, window, normalize } from '../../../../styles/theme';
 
 const resizeMode = 'contain';
 
@@ -32,7 +30,7 @@ const styles = StyleSheet.create({
     paddingBottom: padding * 2,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.color.secondary
+    backgroundColor: color.secondary
   },
 
   image: {
@@ -81,13 +79,13 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: theme.button.backgroundColor,
+    backgroundColor: button.backgroundColor,
     height: normalize(55),
     borderRadius: 4,
     width: '100%'
   },
   buttonText: {
-    color: theme.button.color
+    color: button.color
   },
   bottom: {
     flexDirection: 'row',
@@ -105,7 +103,7 @@ const styles = StyleSheet.create({
 
   signInText: {
     fontSize: font.size.regular,
-    color: theme.color.secondary,
+    color: color.secondary,
     fontFamily: font.family.medium
   },
 

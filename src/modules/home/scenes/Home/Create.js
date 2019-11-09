@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { ScrollView, Text } from 'react-native';
 import styles from './styles';
-
-const { View, Text } = require('react-native');
 
 class Create extends React.Component {
   constructor() {
@@ -12,9 +11,9 @@ class Create extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Text>Create</Text>
-      </View>
+      </ScrollView>
     );
   }
 }

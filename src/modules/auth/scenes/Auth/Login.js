@@ -2,6 +2,7 @@ import React from 'react';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { Text, View } from 'react-native';
+import PropTypes from 'prop-types';
 import { actions as auth } from '../../index';
 import Form from '../../components/Form';
 import styles from './styles';
@@ -94,6 +95,14 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  login: PropTypes.func
+};
+
+Login.defaultProps = {
+  login: null
+};
 
 export default connect(
   null,

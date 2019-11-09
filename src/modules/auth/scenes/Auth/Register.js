@@ -2,6 +2,7 @@ import React from 'react';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { Text, View } from 'react-native';
+import PropTypes from 'prop-types';
 import { actions as auth } from '../../index';
 import Form from '../../components/Form';
 import styles from './styles';
@@ -98,6 +99,14 @@ class Register extends React.Component {
     );
   }
 }
+
+Register.propTypes = {
+  register: PropTypes.func
+};
+
+Register.defaultProps = {
+  register: null
+};
 
 export default connect(
   null,

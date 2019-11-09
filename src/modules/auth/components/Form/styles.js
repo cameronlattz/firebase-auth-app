@@ -1,7 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { theme } from '../../index';
-
-const { color, padding, window, normalize, font } = theme;
+import { button, color, padding, window, normalize, font } from '../../../../styles/theme';
 
 const styles = StyleSheet.create({
   generalErrorText: {
@@ -16,7 +14,7 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   button: {
-    backgroundColor: theme.button.backgroundColor,
+    backgroundColor: button.backgroundColor,
     height: normalize(55)
   },
   buttonText: {

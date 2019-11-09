@@ -4,14 +4,15 @@ import { Button, Divider } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import * as Facebook from 'expo-facebook';
 import * as Google from 'expo-google-app-auth';
 import styles from './styles';
 import * as theme from '../../../../styles/theme';
 import { actions as auth, constants } from '../../index';
+import indexImageSrc from '../../../../assets/images/index.png';
 
 const { signInWithFacebook, signInWithGoogle } = auth;
-const indexImageSrc = require('../../../../assets/images/index.png');
 
 class Welcome extends React.Component {
   onSignInWithGoogle = async () => {
@@ -129,6 +130,16 @@ class Welcome extends React.Component {
     );
   }
 }
+
+Welcome.propTypes = {
+  signInWithFacebook: PropTypes.func,
+  signInWithGoogle: PropTypes.func
+};
+
+Welcome.defaultProps = {
+  signInWithFacebook: null,
+  signInWithGoogle: null
+};
 
 export default connect(
   null,

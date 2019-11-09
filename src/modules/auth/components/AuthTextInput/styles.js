@@ -1,7 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { theme } from '../../index';
-
-const { color, window, font, placeholderTextColor } = theme;
+import { color, window, font } from '../../../../styles/theme';
 
 const styles = StyleSheet.create({
   container: {
@@ -10,7 +8,6 @@ const styles = StyleSheet.create({
   errorText: {
     color: color.error
   },
-  placeholderTextColor,
   inputStyle: {
     fontSize: font.size.regular + 2,
     fontFamily: font.family.bold

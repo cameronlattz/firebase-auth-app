@@ -28,7 +28,6 @@ module.exports = {
     'no-underscore-dangle': 0,
     'react/jsx-filename-extension': 0,
     'react/jsx-wrap-multilines': 0,
-    'react/prefer-stateless-function': 0,
     'prettier/prettier': ["error"],
   },
 };

@@ -1,15 +1,15 @@
-import { Dimensions, Platform, StatusBar } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 import { moderateScale as normalize } from 'react-native-size-matters';
 
 const color = {
   black: '#3B3031',
   light_black: '#414141',
-  primary: '#3fa5ff',
+  button: '#3fa5ff',
+  primary: '#f6f6f6',
   white: '#ffffff',
-  light_gray: '#eaeaea',
+  light_gray: '#eae9ef',
   gray: '#ccc',
   error: 'red',
-  underlayColor: '#ddd',
   secondary: '#ff553f'
 };
 
@@ -61,7 +61,7 @@ const input = {
 
 const button = {
   color: color.white,
-  backgroundColor: color.primary,
+  backgroundColor: color.button,
   icon: {
     style: {
       marginRight: 5
@@ -76,26 +76,6 @@ const window = {
   width: Dimensions.get('window').width
 };
 
-const navTitleStyle = {
-  fontSize: font.size.regular,
-  fontFamily: font.family.extrabold,
-  color: color.black
-};
-
-const statusBarHeight = Platform.OS === 'android' ? StatusBar.currentHeight : 0;
-
 const appName = 'Firebase Auth App';
 
-export {
-  color,
-  tab,
-  input,
-  font,
-  window,
-  padding,
-  statusBarHeight,
-  navTitleStyle,
-  normalize,
-  button,
-  appName
-};
+export { color, tab, input, font, window, padding, normalize, button, appName };
