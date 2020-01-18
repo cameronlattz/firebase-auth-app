@@ -5,11 +5,11 @@ import { YellowBox } from 'react-native';
 import * as Font from 'expo-font';
 import store from './src/redux/store';
 import Router from './src/config/routes';
-import UbuntuBold from './src/assets/fonts/Ubuntu-Bold.ttf';
-import UbuntuMedium from './src/assets/fonts/Ubuntu-Medium.ttf';
-import UbuntuRegular from './src/assets/fonts/Ubuntu-Regular.ttf';
-import UbuntuLight from './src/assets/fonts/Ubuntu-Light.ttf';
-import UbuntuItalic from './src/assets/fonts/Ubuntu-Italic.ttf';
+import FontBold from './src/assets/fonts/Ubuntu-Bold.ttf';
+import FontMedium from './src/assets/fonts/Ubuntu-Medium.ttf';
+import FontRegular from './src/assets/fonts/Ubuntu-Regular.ttf';
+import FontLight from './src/assets/fonts/Ubuntu-Light.ttf';
+import FontItalic from './src/assets/fonts/Ubuntu-Italic.ttf';
 
 function cacheFonts(fonts) {
   return fonts.map(font => Font.loadAsync(font));
@@ -31,11 +31,11 @@ export default class src extends Component {
 
     async function loadAssetsAsync() {
       const fontAssets = cacheFonts([
-        { UbuntuBold },
-        { UbuntuMedium },
-        { UbuntuRegular },
-        { UbuntuLight },
-        { UbuntuItalic }
+        { FontBold },
+        { FontMedium },
+        { FontRegular },
+        { FontLight },
+        { FontItalic }
       ]);
       await Promise.all([...fontAssets]);
     }

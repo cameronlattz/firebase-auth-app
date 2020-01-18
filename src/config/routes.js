@@ -1,8 +1,6 @@
 import React from 'react';
 import { Drawer, Scene, Router, Stack, Actions, Tabs } from 'react-native-router-flux';
 import { View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 // Splash Component
 import Splash from '../components/Splash';
@@ -20,7 +18,7 @@ import Create from '../modules/home/scenes/Home/Create';
 import Read from '../modules/home/scenes/Home/Read';
 import Settings from '../modules/home/scenes/Home/Settings';
 import DrawerContent from '../modules/home/scenes/Home/DrawerContent';
-import RightButton from '../modules/home/components/RightButton';
+import NavButton from '../modules/home/components/NavButton';
 
 // Import Store, actions
 import store from '../redux/store';
@@ -56,21 +54,14 @@ export default class extends React.Component {
 
     function renderRightButtons(...namesAndActions) {
       return (
+        // make different settings for each scene
         <View style={styles.rightButtonContainer}>
           {namesAndActions.map(nameAndAction => {
             const iconName = Object.keys(nameAndAction)[0];
             const handler = nameAndAction[iconName];
-            return <RightButton onPressHandler={handler} iconName={iconName} key={iconName} />;
+            return <NavButton onPressHandler={handler} iconName={iconName} key={iconName} />;
           })}
         </View>
-      );
-    }
-
-    function renderLeftButton() {
-      return (
-        <TouchableOpacity onPress={Actions.drawerOpen} style={styles.leftButton}>
-          <Icon size={32} name="angle-right" />
-        </TouchableOpacity>
       );
     }
 
@@ -92,7 +83,7 @@ export default class extends React.Component {
               drawerWidth={window.width * 0.67}
               title={appName}
               titleStyle={styles.titleStyle}
-              renderLeftButton={renderLeftButton}
+              renderLeftButton={<NavButton onPressHandler={Actions.drawerOpen} iconName="bars" />}
               renderRightButton={renderRightButtons({ wrench: () => Actions.Settings.call() })}
             >
               <Scene key="Home" component={Home} title={appName} initial />

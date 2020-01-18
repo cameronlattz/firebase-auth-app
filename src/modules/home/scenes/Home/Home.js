@@ -18,7 +18,4 @@ class Home extends React.Component {
   }
 }
 
-export default connect(
-  null,
-  {}
-)(Home);
+export default connect(null, {})(Home);

@@ -141,7 +141,4 @@ Welcome.defaultProps = {
   signInWithGoogle: null
 };
 
-export default connect(
-  null,
-  { signInWithFacebook, signInWithGoogle }
-)(Welcome);
+export default connect(null, { signInWithFacebook, signInWithGoogle })(Welcome);

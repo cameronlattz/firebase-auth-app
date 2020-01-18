@@ -1,4 +1,5 @@
 add crud
 add auth method linking
 add theming
+fix vulnerabilities
 clean code

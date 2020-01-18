@@ -108,7 +108,4 @@ Register.defaultProps = {
   register: null
 };
 
-export default connect(
-  null,
-  { register }
-)(Register);
+export default connect(null, { register })(Register);

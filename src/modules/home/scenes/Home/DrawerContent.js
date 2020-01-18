@@ -48,6 +48,9 @@ class Drawer extends React.Component {
         <TouchableOpacity onPress={Actions.Statistics} style={styles.navItem}>
           <Text style={styles.navItemText}>Profile</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={Actions.Settings} style={styles.navItem}>
+          <Text style={styles.navItemText}>Settings</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={this.onSignOut} style={styles.navItem}>
           <Text style={styles.navItemText}>Log Out</Text>
         </TouchableOpacity>
@@ -64,7 +67,4 @@ Drawer.defaultProps = {
   signOut: null
 };
 
-export default connect(
-  null,
-  { signOut }
-)(Drawer);
+export default connect(null, { signOut })(Drawer);

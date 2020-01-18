@@ -7,11 +7,12 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   icon: {
     marginRight: 5,
-    marginLeft: 5
+    marginLeft: 5,
+    padding: 10
   }
 });
 
-const RightButtons = props => {
+const NavButton = props => {
   const { onPressHandler, iconName } = props;
   return (
     <TouchableOpacity onPress={onPressHandler} style={styles.icon} key={iconName}>
@@ -20,14 +21,14 @@ const RightButtons = props => {
   );
 };
 
-RightButtons.propTypes = {
+NavButton.propTypes = {
   onPressHandler: PropTypes.func,
   iconName: PropTypes.string
 };
 
-RightButtons.defaultProps = {
+NavButton.defaultProps = {
   onPressHandler: null,
   iconName: 'priority-high'
 };
 
-export default RightButtons;
+export default NavButton;

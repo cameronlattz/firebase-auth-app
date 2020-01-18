@@ -115,7 +115,4 @@ class Settings extends React.Component {
   }
 }
 
-export default connect(
-  null,
-  {}
-)(Settings);
+export default connect(null, {})(Settings);

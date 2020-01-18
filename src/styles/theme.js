@@ -15,11 +15,11 @@ const color = {
 
 const font = {
   family: {
-    bold: 'UbuntuBold',
-    medium: 'UbuntuMedium',
-    regular: 'UbuntuRegular',
-    light: 'UbuntuLight',
-    italic: 'UbuntuItalic'
+    bold: 'FontBold',
+    medium: 'FontMedium',
+    regular: 'FontRegular',
+    light: 'FontLight',
+    italic: 'FontItalic'
   },
   size: {
     small: normalize(12),
